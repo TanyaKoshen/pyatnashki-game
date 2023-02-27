@@ -1,4 +1,3 @@
-import './App.css';
 import {useEffect, useState} from "react";
 import {chunk, shuffle} from "lodash";
 
@@ -26,7 +25,7 @@ function App() {
   const [scale, setScale] = useState(2)
   const [field, setField] = useState([]);
   const [zero, setZero] = useState([]);
-  const [win, setWin] = useState(false);
+  const [,setWin] = useState(false);
 
   const generateField = () => {
     const generateArray = Array.from(Array(scale * scale).keys());
@@ -84,7 +83,7 @@ function App() {
     if (helper(field)) {
       setWin(true)
     }
-  }, [...field])
+  }, [])
 
 
   return <div style={{ textAlign: 'center'}}>
