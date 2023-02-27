@@ -5,6 +5,24 @@ import {chunk, shuffle} from "lodash";
 
 function App() {
 
+  const cellStyle = {
+    width: '40px',
+    height: '40px',
+    border: '2px solid silver',
+    display:' inline-flex'
+  }
+
+  const rowStyle = {
+    display: 'flex',
+    flexDirection: 'row'
+  }
+
+  const fieldStyle={
+    margin: '30px',
+    border: '2px solid silver',
+    display: 'inline-block'
+  }
+
   const [scale, setScale] = useState(2)
   const [field, setField] = useState([]);
   const [zero, setZero] = useState([]);
@@ -69,7 +87,7 @@ function App() {
   }, [...field])
 
 
-  return <div className="App">
+  return <div style={{ textAlign: 'center'}}>
     <div>
       <input type="number" min='2' max='10' value={scale} onChange={(event) => setScale(event.target.value)}/>
       <button onClick={generateField}>Build Field</button>
@@ -77,11 +95,11 @@ function App() {
 
 
 
-    <div className="field">
+    <div style={fieldStyle} >
       {field.map((row, x) => (
-        <div className="row">
+        <div style={rowStyle}>
           {row.map((cell, y) => (
-            <div className="cell"
+            <div style={cellStyle}
                  onClick={() => swapCell(x, y)}
             >
               {cell !== 0 ? cell : '   '}
