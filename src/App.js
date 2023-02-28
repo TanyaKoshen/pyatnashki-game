@@ -83,7 +83,7 @@ function App() {
     if (helper(field)) {
       setWin(true)
     }
-  }, [])
+  }, [field])
 
 
   return <div style={{ textAlign: 'center'}}>
